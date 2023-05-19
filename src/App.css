@@ -1,0 +1,118 @@
+h1 {
+  margin: 2rem;
+}
+
+.input-container {
+  display: flex;
+  flex-direction: column;
+  margin: 1rem;
+  position: relative;
+}
+
+.helpers,
+.icons,
+.sizes {
+  display: flex;
+  gap: 4rem;
+}
+
+p {
+  margin: 2rem 0 1rem 1rem;
+  color: #908c8c;
+}
+
+.inputs {
+  margin: 1rem;
+}
+
+.label,
+.input {
+  transition: all 0.3s ease-in-out;
+}
+
+.input {
+  margin: 0.25rem 0;
+  padding: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 0.55rem;
+  width: 30vh;
+}
+
+.input:hover {
+  border: 1.5px solid #000;
+}
+
+.label:focus-within,
+.input:focus {
+  border: 1.5px solid;
+  border-color: #2962ff;
+  color: #2962ff;
+  font-weight: 700;
+}
+
+.material-icons {
+  position: absolute;
+  top: 63%;
+  transform: translateY(-50%);
+  font-size: 1.15rem;
+  padding: 0.5rem;
+  color: #000;
+}
+
+.icon input.input--icon-left {
+  padding-left: 2rem;
+}
+
+.icon input.input--icon-right {
+  padding-right: 2rem;
+}
+
+.material-icons.right {
+  top: 43%;
+  transform: translateX(580%);
+}
+
+.input--size-sm {
+  font-size: 0.75rem;
+}
+
+.input--size-md {
+  font-size: 1rem;
+}
+
+.input--size-lg {
+  font-size: 1.25rem;
+}
+
+.input--fullWidth {
+  width: 100%;
+}
+
+/* .input--multiline {
+} */
+
+.input--color-default {
+  color: #000;
+}
+
+.input--color-primary {
+  color: blue;
+}
+
+.input--color-secondary {
+  color: gray;
+}
+
+.label--error {
+  color: red;
+}
+.input--error {
+  border-color: red;
+}
+
+.label--disabled {
+  color: #909090;
+}
+.input--disabled {
+  background-color: #eee;
+}
