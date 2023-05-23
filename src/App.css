@@ -1,7 +1,19 @@
+.App {
+  margin: auto;
+  padding: 1rem;
+}
 h1 {
   margin: 2rem;
 }
 
+p {
+  margin: 2rem 0 1rem 1rem;
+  color: #908c8c;
+}
+
+.inputs {
+  margin: 1rem;
+}
 .input-container {
   display: flex;
   flex-direction: column;
@@ -16,21 +28,13 @@ h1 {
   gap: 4rem;
 }
 
-p {
-  margin: 2rem 0 1rem 1rem;
-  color: #908c8c;
-}
-
-.inputs {
-  margin: 1rem;
-}
-
 .label,
 .input {
   transition: all 0.3s ease-in-out;
 }
 
-.input {
+input,
+textarea {
   margin: 0.25rem 0;
   padding: 1rem;
   border: 1px solid #ccc;
@@ -38,22 +42,29 @@ p {
   width: 30vh;
 }
 
-.input:hover {
-  border: 1.5px solid #000;
+.input-container:hover,
+.input-container:hover label,
+.input-container:hover input {
+  color: #000;
 }
 
-.label:focus-within,
-.input:focus {
-  border: 1.5px solid;
-  border-color: #2962ff;
+.input-container:hover input {
+  border: 1px solid #000;
+}
+
+.input-container:focus-within,
+.input-container:focus-within label {
   color: #2962ff;
-  font-weight: 700;
+}
+
+.input-container:focus-within input.input.focused:focus-visible {
+  outline: 2px solid#2962ff;
 }
 
 .material-icons {
   position: absolute;
-  top: 63%;
-  transform: translateY(-50%);
+  top: 50%;
+  transform: translate(-5%, -20%);
   font-size: 1.15rem;
   padding: 0.5rem;
   color: #000;
@@ -67,9 +78,13 @@ p {
   padding-right: 2rem;
 }
 
+.icon.right input.input--icon-right {
+  padding-right: 4rem;
+}
+
 .material-icons.right {
-  top: 43%;
-  transform: translateX(580%);
+  right: 0;
+  transform: translate(5%, -20%);
 }
 
 .input--size-sm {
@@ -103,11 +118,27 @@ p {
   color: gray;
 }
 
-.label--error {
+.input-container.error,
+label.label--error,
+.input--error {
   color: red;
 }
 .input--error {
   border-color: red;
+}
+
+.input-container.error:hover,
+.input-container.error:hover label,
+.input-container.error:hover input {
+  color: #000;
+}
+
+.input-container.error:focus-within div,
+.input-container.error:focus-within label {
+  color: red;
+}
+.input-container.error:focus-within input.input--error.focused:focus-visible {
+  outline: 2px solid red !important;
 }
 
 .label--disabled {

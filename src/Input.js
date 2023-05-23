@@ -45,30 +45,50 @@ const Input = ({
     .filter(Boolean)
     .join(" ");
 
+  const [isFocused, setIsFocused] = useState(false);
+
+  const handleFocus = (event) => {
+    setIsFocused(true);
+    if (onFocus) {
+      onFocus(event);
+    }
+  };
+
+  const handleBlur = (event) => {
+    setIsFocused(false);
+    if (onBlur) {
+      onBlur(event);
+    }
+  };
+
   return (
-    <div className="input-container">
+    <div
+      className={`input-container ${error ? "error" : ""} ${
+        disabled ? "disabled" : ""
+      }`}
+    >
       <label className={labelClassNames}>{label}</label>
       {multiline ? (
         <textarea
-          className={classNames}
+          className={`${classNames} ${isFocused ? "focused" : ""}`}
           value={value}
           onChange={handleChange}
           disabled={disabled}
           placeholder={placeholder}
-          onFocus={onFocus}
-          onBlur={onBlur}
+          onFocus={handleFocus}
+          onBlur={handleBlur}
           row={row}
         />
       ) : (
         <input
-          className={classNames}
+          className={`${classNames} ${isFocused ? "focused" : ""}`}
           type={type}
           value={value}
           onChange={handleChange}
           disabled={disabled}
           placeholder={placeholder}
-          onFocus={onFocus}
-          onBlur={onBlur}
+          onFocus={handleFocus}
+          onBlur={handleBlur}
         />
       )}
       {helperText && <div>{helperText}</div>}
@@ -80,4 +100,5 @@ const Input = ({
     </div>
   );
 };
+
 export default Input;
